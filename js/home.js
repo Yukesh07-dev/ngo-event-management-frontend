@@ -1,4 +1,4 @@
-﻿const API = "http://localhost:8080/api";
+﻿const API = "https://ngo-event-management-backend-production.up.railway.app/api";
 
 async function loadStats() {
     try {
