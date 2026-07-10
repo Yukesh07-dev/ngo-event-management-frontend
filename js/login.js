@@ -21,8 +21,9 @@
     btn.innerHTML = '<i class="bi bi-arrow-repeat me-2"></i>Signing In...';
 
     try {
+        // PRODUCTION FIX: Pointing to your live Railway deployment instead of localhost
         const response = await fetch(
-            "http://localhost:8080/api/auth/login",
+            "https://ngo-event-management-backend-production.up.railway.app/api/auth/login",
             {
                 method:"POST",
                 headers:{
@@ -38,7 +39,10 @@
             sessionStorage.setItem("user", JSON.stringify(result));
             alert("Login Successful");
 
-            if(result.role === "ADMIN"){
+            // Safe normalized check for matching the string cleanly over the network
+            const userRole = result.role ? result.role.toUpperCase() : "";
+
+            if(userRole === "ADMIN"){
                 window.location.href="admin.html";
             } else {
                 window.location.href="index.html";
