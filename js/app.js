@@ -30,7 +30,7 @@ if(registerForm){
 
         try{
             const response = await fetch(
-                "https://ngo-event-management-backend.onrender.com/api/users",
+                "https://ngo-event-management-backend.onrender.com/api/auth/register",
                 {
                     method:"POST",
                     headers:{
