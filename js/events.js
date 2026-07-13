@@ -15,7 +15,7 @@ async function loadEvents() {
     }
 
     try {
-        const response = await fetch("http://localhost:8080/api/events");
+        const response = await fetch("https://ngo-event-management-backend.onrender.com/api/events");
         
         if (!response.ok) {
             throw new Error('Failed to load events');
@@ -131,7 +131,7 @@ async function joinEvent(eventId) {
 
     try {
         const response = await fetch(
-            "http://localhost:8080/api/registrations",
+            "https://ngo-event-management-backend.onrender.com/api/registrations",
             {
                 method:"POST",
                 headers:{

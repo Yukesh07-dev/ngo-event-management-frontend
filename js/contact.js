@@ -26,7 +26,7 @@ if (contactForm) {
 
         try {
             const response = await fetch(
-                "http://localhost:8080/api/contact",
+                "https://ngo-event-management-backend.onrender.com/api/contact",
                 {
                     method:"POST",
                     headers:{

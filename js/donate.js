@@ -30,7 +30,7 @@ if (donationForm) {
 
         try {
             const orderResponse = await fetch(
-                `http://localhost:8080/api/payment/create-order?amount=${amount}`,
+                `https://ngo-event-management-backend.onrender.com/api/payment/create-order?amount=${amount}`,
                 {
                     method:"POST"
                 }
@@ -62,7 +62,7 @@ if (donationForm) {
                         };
 
                         const donationResponse = await fetch(
-                            "http://localhost:8080/api/donations",
+                            "https://ngo-event-management-backend.onrender.com/api/donations",
                             {
                                 method:"POST",
                                 headers:{

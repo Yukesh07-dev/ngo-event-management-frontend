@@ -14,7 +14,7 @@
     }
 
     const response = await fetch(
-        `http://localhost:8080/api/donations/user/${user.email}`
+        `https://ngo-event-management-backend.onrender.com/api/donations/user/${user.email}`
     );
 
     const donations =

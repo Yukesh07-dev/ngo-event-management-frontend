@@ -14,7 +14,7 @@ async function loadRegistrations(){
 
     const response =
         await fetch(
-            `http://localhost:8080/api/registrations/user/${user.userId}`
+            `https://ngo-event-management-backend.onrender.com/api/registrations/user/${user.userId}`
         );
 
     const registrations =

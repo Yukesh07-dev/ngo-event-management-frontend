@@ -13,7 +13,7 @@
     }
 
     try {
-        const response = await fetch("http://localhost:8080/api/gallery");
+        const response = await fetch("https://ngo-event-management-backend.onrender.com/api/gallery");
         
         if (!response.ok) {
             throw new Error('Failed to load gallery');

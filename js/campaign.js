@@ -13,7 +13,7 @@
     }
 
     try{
-        const response = await fetch("http://localhost:8080/api/campaigns");
+        const response = await fetch("https://ngo-event-management-backend.onrender.com/api/campaigns");
         
         if (!response.ok) {
             throw new Error('Failed to load campaigns');
@@ -93,7 +93,7 @@ async function donateToCampaign(campaignId, campaignTitle){
 
     try {
         const orderResponse = await fetch(
-            `http://localhost:8080/api/payment/create-order?amount=${amount}`,
+            `https://ngo-event-management-backend.onrender.com/api/payment/create-order?amount=${amount}`,
             {
                 method:"POST"
             }
@@ -115,7 +115,7 @@ async function donateToCampaign(campaignId, campaignTitle){
             handler: async function(response){
                 try {
                     const updateResponse = await fetch(
-                        `http://localhost:8080/api/campaigns/${campaignId}/donate?amount=${amount}`,
+                        `https://ngo-event-management-backend.onrender.com/api/campaigns/${campaignId}/donate?amount=${amount}`,
                         {
                             method:"PUT"
                         }

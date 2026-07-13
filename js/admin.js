@@ -1,5 +1,5 @@
 ﻿
-fetch("http://localhost:8080/api/users")
+fetch("https://ngo-event-management-backend.onrender.com/api/users")
 .then(response => response.json())
 .then(data => {
 
@@ -12,7 +12,7 @@ fetch("http://localhost:8080/api/users")
 
 });
 
-fetch("http://localhost:8080/api/volunteers")
+fetch("https://ngo-event-management-backend.onrender.com/api/volunteers")
 .then(response => response.json())
 .then(data => {
 
@@ -25,7 +25,7 @@ fetch("http://localhost:8080/api/volunteers")
 
 });
 
-fetch("http://localhost:8080/api/events")
+fetch("https://ngo-event-management-backend.onrender.com/api/events")
 .then(response => response.json())
 .then(data => {
 
@@ -38,7 +38,7 @@ fetch("http://localhost:8080/api/events")
 
 });
 
-fetch("http://localhost:8080/api/donations")
+fetch("https://ngo-event-management-backend.onrender.com/api/donations")
 .then(response => response.json())
 .then(data => {
 
@@ -70,7 +70,7 @@ loadGallery();
 async function loadUsers() {
 
     const response =
-        await fetch("http://localhost:8080/api/users");
+        await fetch("https://ngo-event-management-backend.onrender.com/api/users");
 
     const users =
         await response.json();
@@ -100,7 +100,7 @@ async function loadUsers() {
 async function loadVolunteers() {
 
     const response =
-        await fetch("http://localhost:8080/api/volunteers");
+        await fetch("https://ngo-event-management-backend.onrender.com/api/volunteers");
 
     const volunteers =
         await response.json();
@@ -132,7 +132,7 @@ async function loadVolunteers() {
 async function loadEvents() {
 
     const response =
-        await fetch("http://localhost:8080/api/events");
+        await fetch("https://ngo-event-management-backend.onrender.com/api/events");
 
     const events =
         await response.json();
@@ -189,7 +189,7 @@ async function deleteEvent(id) {
     }
 
     await fetch(
-        `http://localhost:8080/api/events/${id}`,
+        `https://ngo-event-management-backend.onrender.com/api/events/${id}`,
         {
             method: "DELETE"
         }
@@ -244,7 +244,7 @@ if(eventForm){
             };
 
             await fetch(
-                "http://localhost:8080/api/events",
+                "https://ngo-event-management-backend.onrender.com/api/events",
                 {
                     method:"POST",
                     headers:{
@@ -307,7 +307,7 @@ if(campaignForm){
 
             const response =
                 await fetch(
-                    "http://localhost:8080/api/campaigns",
+                    "https://ngo-event-management-backend.onrender.com/api/campaigns",
                     {
                         method:"POST",
                         headers:{
@@ -334,7 +334,7 @@ async function loadMessages(){
 
     const response =
         await fetch(
-            "http://localhost:8080/api/contact"
+            "https://ngo-event-management-backend.onrender.com/api/contact"
         );
 
     const messages =
@@ -398,7 +398,7 @@ if(galleryForm){
 
             const response =
                 await fetch(
-                    "http://localhost:8080/api/gallery",
+                    "https://ngo-event-management-backend.onrender.com/api/gallery",
                     {
                         method:"POST",
                         headers:{
@@ -425,7 +425,7 @@ async function loadDashboardStats(){
 
     const response =
         await fetch(
-            "http://localhost:8080/api/dashboard"
+            "https://ngo-event-management-backend.onrender.com/api/dashboard"
         );
 
     const stats =
@@ -456,7 +456,7 @@ async function viewParticipants(eventId){
 
     const response =
         await fetch(
-            `http://localhost:8080/api/registrations/event/${eventId}`
+            `https://ngo-event-management-backend.onrender.com/api/registrations/event/${eventId}`
         );
 
     const participants =
@@ -491,27 +491,27 @@ async function viewParticipants(eventId){
 async function loadDashboardStats() {
 
     const users =
-        await fetch("http://localhost:8080/api/users")
+        await fetch("https://ngo-event-management-backend.onrender.com/api/users")
         .then(r => r.json());
 
     const volunteers =
-        await fetch("http://localhost:8080/api/volunteers")
+        await fetch("https://ngo-event-management-backend.onrender.com/api/volunteers")
         .then(r => r.json());
 
     const events =
-        await fetch("http://localhost:8080/api/events")
+        await fetch("https://ngo-event-management-backend.onrender.com/api/events")
         .then(r => r.json());
 
     const campaigns =
-        await fetch("http://localhost:8080/api/campaigns")
+        await fetch("https://ngo-event-management-backend.onrender.com/api/campaigns")
         .then(r => r.json());
 
     const donations =
-        await fetch("http://localhost:8080/api/donations")
+        await fetch("https://ngo-event-management-backend.onrender.com/api/donations")
         .then(r => r.json());
 
     const messages =
-        await fetch("http://localhost:8080/api/contact")
+        await fetch("https://ngo-event-management-backend.onrender.com/api/contact")
         .then(r => r.json());
 
     document.getElementById("totalUsers").innerText =
@@ -544,7 +544,7 @@ loadDashboardStats();
 async function loadGallery(){
 
     const response =
-        await fetch("http://localhost:8080/api/gallery");
+        await fetch("https://ngo-event-management-backend.onrender.com/api/gallery");
 
     const images =
         await response.json();
@@ -600,7 +600,7 @@ async function deleteGallery(id){
     }
 
     await fetch(
-        `http://localhost:8080/api/gallery/${id}`,
+        `https://ngo-event-management-backend.onrender.com/api/gallery/${id}`,
         {
             method:"DELETE"
         }

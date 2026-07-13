@@ -39,7 +39,7 @@ document.getElementById("profileForm")
     };
 
     const response = await fetch(
-        `http://localhost:8080/api/users/${user.userId}`,
+        `https://ngo-event-management-backend.onrender.com/api/users/${user.userId}`,
         {
             method: "PUT",
             headers: {

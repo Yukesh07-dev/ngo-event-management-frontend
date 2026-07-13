@@ -27,7 +27,7 @@ if (volunteerForm) {
 
         try {
             const response = await fetch(
-                "http://localhost:8080/api/volunteers",
+                "https://ngo-event-management-backend.onrender.com/api/volunteers",
                 {
                     method: "POST",
                     headers: {
