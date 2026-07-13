@@ -23,7 +23,7 @@
     try {
         // PRODUCTION FIX: Pointing to your live Railway deployment instead of localhost
         const response = await fetch(
-            "https://ngo-event-management-backend-production.up.railway.app/api/auth/login",
+            "https://ngo-event-management-backend.onrender.com/api/auth/login",
             {
                 method:"POST",
                 headers:{
