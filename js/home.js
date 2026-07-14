@@ -2,13 +2,26 @@
 
 async function loadStats() {
     try {
-        const response = await fetch(`${API}/dashboard`);
-        const stats = await response.json();
+        // Fetch arrays from your real backend controllers concurrently
+        const [usersRes, eventsRes, donationsRes, campaignsRes] = await Promise.all([
+            fetch(`${API}/users`),
+            fetch(`${API}/events`),
+            fetch(`${API}/donations`),
+            fetch(`${API}/campaigns`)
+        ]);
 
-        document.getElementById("statVolunteers").textContent = stats.volunteers || 0;
-        document.getElementById("statEvents").textContent = stats.events || 0;
-        document.getElementById("statDonations").textContent = stats.donations || 0;
-        document.getElementById("statCampaigns").textContent = stats.campaigns || 0;
+        // Convert responses to JSON arrays
+        const users = usersRes.ok ? await usersRes.json() : [];
+        const events = eventsRes.ok ? await eventsRes.json() : [];
+        const donations = donationsRes.ok ? await donationsRes.json() : [];
+        const campaigns = campaignsRes.ok ? await campaignsRes.json() : [];
+
+        // Count the number of rows dynamically in the frontend script!
+        document.getElementById("statVolunteers").textContent = users.filter(u => u.role === "USER").length;
+        document.getElementById("statEvents").textContent = events.length;
+        document.getElementById("statDonations").textContent = donations.length;
+        document.getElementById("statCampaigns").textContent = campaigns.length;
+
     } catch (error) {
         console.error("Stats load failed:", error);
     }
