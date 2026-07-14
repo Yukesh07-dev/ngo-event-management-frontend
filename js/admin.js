@@ -262,15 +262,23 @@ async function loadGallery() {
         tbody.innerHTML = "";
 
         images.forEach(image => {
+            // Determine the correct ID field dynamically (checking for imageId, id, or galleryId)
+            const actualId = image.id || image.imageId || image.galleryId;
+            
+            // Diagnostic check: If it's still undefined, log the object structure to fix the key
+            if (actualId === undefined) {
+                console.error("Missing ID key in image object:", image);
+            }
+
             tbody.innerHTML += `
                 <tr>
-                    <td>${image.galleryId}</td>
+                    <td>${actualId || "N/A"}</td>
                     <td>
                         <img src="${image.imageUrl}" width="80" class="rounded" alt="">
                     </td>
                     <td>${image.title}</td>
                     <td>
-                        <button class="btn btn-danger btn-sm" onclick="deleteGallery(${image.galleryId})">Delete</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteGallery(${actualId})">Delete</button>
                     </td>
                 </tr>
             `;
@@ -279,7 +287,6 @@ async function loadGallery() {
         console.error("Failed reading gallery array objects feed:", error);
     }
 }
-
 const galleryForm = document.getElementById("galleryForm");
 if (galleryForm) {
     galleryForm.addEventListener("submit", async function(e) {
