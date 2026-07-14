@@ -52,14 +52,14 @@ if (donationForm) {
                 handler: async function(response){
                     try {
                         const donation = {
-                            donorName: donorName,
-                            email: email,
-                            amount: amount,
-                            campaign: campaign,
-                            message: message,
-                            paymentStatus: "SUCCESS",
-                            transactionId: response.razorpay_payment_id
-                        };
+                      donorName: donorName,
+                      email: email,
+                      amount: parseFloat(amount), 
+                      campaign: campaign,
+                      message: message,
+                      paymentStatus: "SUCCESS",
+                      transactionId: response.razorpay_payment_id
+};
 
                         const donationResponse = await fetch(
                             "https://ngo-event-management-backend.onrender.com/api/donations",
