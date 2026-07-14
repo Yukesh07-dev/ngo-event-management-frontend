@@ -1,4 +1,4 @@
-﻿const API = "https://ngo-event-management-backend-production.up.railway.app/api";
+﻿const API = "https://ngo-event-management-backend.onrender.com/api";
 
 async function loadStats() {
     try {
